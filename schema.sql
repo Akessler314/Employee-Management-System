@@ -1,4 +1,5 @@
 DROP DATABASE IF EXISTS employee_management_systemDB;
+
 CREATE database employee_management_systemDB;
 
 USE employee_management_systemDB;
@@ -20,12 +21,11 @@ CREATE TABLE role (
 CREATE TABLE employee (
  id INT NOT NULL,
 first_name VARCHAR(30) NOT NULL,
-last_name VARCHAR(30) NOT NULL
+last_name VARCHAR(30) NOT NULL,
 role_id INT NOT NULL, 
-manager_id INT NULL --can be null, jsut in case the employee has no manager -- 
+manager_id INT NULL,
  PRIMARY KEY (id)
 );
-
 
 
 

@@ -75,7 +75,7 @@ function main() {
                     continuePrompt();
                 });
                 break;
-                //Shows all roles 
+            //Shows all roles 
             case "View All Roles":
                 var query = connection.query("SELECT * FROM role", function (err, data) {
                     if (err) throw err;
@@ -83,7 +83,7 @@ function main() {
                     continuePrompt();
                 });
                 break;
-                //Adds a new role to the the role DB 
+            //Adds a new role to the the role DB 
             case "Add A Role":
                 var query = connection.query("SELECT id, department FROM department", function (err, data) {
                     if (err) throw err;
@@ -117,8 +117,42 @@ function main() {
                     });
                 });
                 break;
+            //used for adding an employee 
+            case "Add An Employee":
+                var query = connection.query("SELECT id, title FROM role", function (err, data) {
+                    if (err) throw err;
+                    let choices = data.map(x => `${x.id} - ${x.title}`);
+                    inquirer.prompt([
+                        {
+                            type: "input",
+                            name: "firstName",
+                            message: "Enter this employee's first name:",
+                            validate: validateString
+                        },
+                        {
+                            type: "input",
+                            name: "lastName",
+                            message: "Enter this employee's last name:",
+                            validate: validateString
+                        },
+                        {
+                            type: "list",
+                            name: "role",
+                            message: "Select this employee's role:",
+                            choices: [...choices]
+                        }
+                    ]).then(function (data) {
+                        var arr = data.role.split(" ");
+                        var roleID = parseInt(arr[0]);
+                        var query = connection.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${data.firstName}', '${data.lastName}', ${roleID}, 0)`, function (err, data) {
+                            if (err) throw err;
+                            continuePrompt();
+                        });
+                    });
+                });
+                break;
 
-
+            //Ued for adding a department 
             case "Add A Department":
                 inquirer.prompt([
                     {
@@ -136,7 +170,8 @@ function main() {
                 });
                 break;
 
-
+    
+            //Used to Update an employee 
             case "Update Employee Role":
                 const emp = {
                     first_name: "",

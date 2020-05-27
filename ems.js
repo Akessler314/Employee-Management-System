@@ -112,6 +112,7 @@ function main() {
                         var deptID = parseInt(arr[0]);
                         var query = connection.query(`INSERT INTO role (title, salary, department_id) VALUES ('${data.title}', ${data.salary}, ${deptID})`, function (err, data) {
                             if (err) throw err;
+                            console.log("Role has been added to the table!")
                             continuePrompt();
                         });
                     });
@@ -146,6 +147,7 @@ function main() {
                         var roleID = parseInt(arr[0]);
                         var query = connection.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ('${data.firstName}', '${data.lastName}', ${roleID}, 0)`, function (err, data) {
                             if (err) throw err;
+                            console.log("Employee has been added to the table!")
                             continuePrompt();
                         });
                     });
@@ -165,7 +167,9 @@ function main() {
                     var query = connection.query(`INSERT INTO department (department) VALUES ('${data.department}');`, function (err, data) {
                         if (err) throw err;
                         return data;
+                        
                     });
+                    console.log("Department has been added to the table!")
                     continuePrompt();
                 });
                 break;

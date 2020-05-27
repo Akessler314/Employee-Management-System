@@ -1,11 +1,11 @@
-# Team Profile Generator
+# Employee Management System
 This application was developed by: Andrew Kessler (Akessler314)
 
 This application is for a business to keep track of multiple departments, roles in those departments (along with the salary for that role) what employees have are in those roles and what employees manage other employees 
 
 This application is for a school asigment and utilizes: mySQL databases with multile tables interlinked, inquirer to write a Javascript application that is acsessed through a terminal to manipulate the mentioned database's tables, and finally a local host server to acsess that database through the applciation.  
 
-Video of working Aplication: 
+Video of working Aplication: https://www.youtube.com/watch?v=aP_SOY0PxBM&feature=youtu.be
 
 ## Breakdown of database Schema 
 

@@ -48,13 +48,13 @@ function main() {
             name: "mainMenu",
             message: "Select an option:",
             choices: [
-                "View All Employees", //added 
-                "View All Roles", //added
-                "View All Departments", //added
-                "Add An Employee", // use the update one as a reference 
-                "Add A Role", //added 
-                "Add A Department", //added 
-                "Update Employee Role" //added 
+                "View All Employees",  
+                "View All Roles", 
+                "View All Departments", 
+                "Add An Employee", 
+                "Add A Role",  
+                "Add A Department",  
+                "Update Employee Role // Assign Manager to Employee"  
             ]
         }
     ]).then(function (answer) {
@@ -172,7 +172,7 @@ function main() {
 
     
             //Used to Update an employee 
-            case "Update Employee Role":
+            case "Update Employee Role // Assign Manager to Employee":
                 const emp = {
                     first_name: "",
                     last_name: "",
